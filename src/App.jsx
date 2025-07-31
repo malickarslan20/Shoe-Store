@@ -26,33 +26,30 @@ function App() {
       
       if (storedUser) {
         dispatch(setuser(storedUser));
-      } else {
-        navigate('/');
-      }
+      } 
+      
     } catch (err) {
       console.error('Error restoring user:', err);
-      navigate('/');
+      navigate('/login');
     }
   }, [dispatch, navigate]);
   return (
     <>
     <Routes>
-      {/* All routes wrapped with Layout */}
-      <Route path="/" element={<Layout />}>
-        <Route index element={<ShoeCard />} />
-        <Route path="services" element={<Ourservices />} />
-        <Route path="about" element={<AboutUs />} />
-        <Route path="contact" element={<ContactUs />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
-        <Route path="logout" element={<Logout />} />
-        <Route path="admin"  element={<AdminPage/>} />
-        <Route path="/products" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-         
+  <Route path="/" element={<Layout />}>
+    <Route index element={<ShoeCard />} />
+    <Route path="services" element={<Ourservices />} />
+    <Route path="about" element={<AboutUs />} />
+    <Route path="contact" element={<ContactUs />} />
+    <Route path="login" element={<Login />} />
+    <Route path="signup" element={<Signup />} />
+    <Route path="logout" element={<Logout />} />
+    <Route path="admin" element={<AdminPage />} />
+    <Route path="products" element={<ProductPage />} />
+    <Route path="cart" element={<Cart />} />
+  </Route>
+</Routes>
 
-      </Route>
-    </Routes>
      <ToastContainer position="top-center" />
      </>
   );
